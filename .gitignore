@@ -22,3 +22,8 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Everything the local Home Assistant (bun run ha) writes to its config folder
+dev/ha/*
+!dev/ha/configuration.yaml
+!dev/ha/dashboards/

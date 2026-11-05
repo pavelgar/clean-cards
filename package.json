@@ -1,16 +1,25 @@
 {
   "name": "clean-cards",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "type": "module",
   "packageManager": "bun@1.4.4",
   "scripts": {
-    "dev": "vite build --watch",
+    "dev": "bun run --parallel watch preview",
+    "watch": "vite build --watch",
+    "preview": "vite preview",
     "build": "tsc && vite build",
+    "typecheck": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "ha": "docker run --rm --name clean-cards-ha -p 8123:8123 -v ./dev/ha:/config:Z ghcr.io/home-assistant/home-assistant:stable"
+  },
+  "prettier": {
+    "semi": false
   },
   "dependencies": {
     "lit": "^3.3.3"
@@ -19,9 +28,15 @@
     "@eslint/js": "^10.0.1",
     "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-lit": "^2.3.1",
+    "eslint-plugin-no-relative-import-paths": "^1.7.3",
+    "eslint-plugin-wc": "^3.1.0",
+    "happy-dom": "^21.0.4",
+    "home-assistant-js-websocket": "^9.8.1",
     "prettier": "^3.9.10",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.72.1",
-    "vite": "^8.3.6"
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
   }
 }

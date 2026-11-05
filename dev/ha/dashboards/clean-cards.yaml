@@ -1,0 +1,39 @@
+# Each card next to the built-in tile card for the same entities.
+# Home Assistant re-reads this file when you reload the dashboard.
+
+views:
+  - title: Clean Cards
+    type: sections
+    sections:
+      - type: grid
+        cards:
+          - type: heading
+            heading: clean-entity-card
+          - type: custom:clean-entity-card
+            entity: input_boolean.dev_toggle
+          - type: custom:clean-entity-card
+            entity: input_number.dev_level
+          - type: custom:clean-entity-card
+            entity: light.bed_light
+          - type: custom:clean-entity-card
+            entity: sensor.outside_temperature
+          - type: custom:clean-entity-card
+            entity: climate.heatpump
+          - type: custom:clean-entity-card
+            entity: media_player.living_room
+      - type: grid
+        cards:
+          - type: heading
+            heading: Tile (built in)
+          - type: tile
+            entity: input_boolean.dev_toggle
+          - type: tile
+            entity: input_number.dev_level
+          - type: tile
+            entity: light.bed_light
+          - type: tile
+            entity: sensor.outside_temperature
+          - type: tile
+            entity: climate.heatpump
+          - type: tile
+            entity: media_player.living_room

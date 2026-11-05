@@ -1,0 +1,33 @@
+# Config for the local Home Assistant started by `bun run ha`.
+# This folder is mounted as its /config; everything it writes here is gitignored.
+
+default_config:
+
+# Fake lights, sensors, climate, media players etc. to put on cards.
+demo:
+
+# Entities whose state is easy to flip by hand.
+input_boolean:
+  dev_toggle:
+    name: Dev toggle
+
+input_number:
+  dev_level:
+    name: Dev level
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"
+
+# Load the built cards from `bun run dev` on every page.
+frontend:
+  extra_module_url:
+    - http://localhost:4000/clean-cards.js
+
+lovelace:
+  dashboards:
+    clean-cards:
+      mode: yaml
+      filename: dashboards/clean-cards.yaml
+      title: Clean Cards
+      icon: mdi:card-outline
