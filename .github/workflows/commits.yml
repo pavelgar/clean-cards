@@ -1,0 +1,37 @@
+name: Commits
+
+on:
+  pull_request:
+    types: [opened, edited, synchronize, reopened]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  commitlint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v7
+        with:
+          node-version-file: .nvmrc
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version-file: package.json
+      - run: bun install --frozen-lockfile
+      # A squash merge of several commits uses the PR title as the commit message.
+      - name: Lint the PR title
+        run: echo "$PR_TITLE" | bunx commitlint --verbose
+        env:
+          PR_TITLE: ${{ github.event.pull_request.title }}
+      - name: Lint the PR commits
+        run: bunx commitlint --verbose --from "$BASE" --to "$HEAD"
+        env:
+          BASE: ${{ github.event.pull_request.base.sha }}
+          HEAD: ${{ github.event.pull_request.head.sha }}

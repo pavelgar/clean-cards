@@ -26,4 +26,6 @@ bun run dev   # rebuilds dist/clean-cards.js on change and serves it to Home Ass
 
 Create an account on first start, then open the **Clean Cards** dashboard and reload it after changes. `git clean -fdX dev/ha` resets Home Assistant.
 
+Commit messages and PR titles follow [Conventional Commits](https://www.conventionalcommits.org/) (`feat: add a tile card`, `fix(entity): …`); a `commit-msg` hook installed by `bun install` and CI check them.
+
 To release, set `version` in `package.json`, merge, and push a matching `v*` tag.
