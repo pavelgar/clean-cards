@@ -4,6 +4,10 @@ updates:
     directory: /
     schedule:
       interval: weekly
+    ignore:
+      # typescript-eslint supports TypeScript <6.1 only; lift once it supports 7.
+      - dependency-name: typescript
+        versions: [">=6.1"]
   - package-ecosystem: github-actions
     directory: /
     schedule:
