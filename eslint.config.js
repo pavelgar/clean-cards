@@ -2,6 +2,7 @@ import js from "@eslint/js"
 import { defineConfig, globalIgnores } from "eslint/config"
 import prettier from "eslint-config-prettier"
 import { configs as lit } from "eslint-plugin-lit"
+import { configs as litA11y } from "eslint-plugin-lit-a11y"
 import noRelativeImportPaths from "eslint-plugin-no-relative-import-paths"
 import { configs as wc } from "eslint-plugin-wc"
 import tseslint from "typescript-eslint"
@@ -11,6 +12,7 @@ export default defineConfig([
   js.configs.recommended,
   tseslint.configs.recommended,
   lit["flat/recommended"],
+  litA11y.recommended,
   wc["flat/recommended"],
   {
     settings: { wc: { elementBaseClasses: ["LitElement"] } },
