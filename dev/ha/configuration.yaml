@@ -1,0 +1,20 @@
+# Config for the throwaway Home Assistant started by `bun run ha start`.
+# Copied to .ha/ on first start; edit .ha/configuration.yaml to experiment.
+
+default_config:
+
+# Fake lights, sensors, climate, media players etc. to put on cards.
+demo:
+
+# Entities the cards' state is easy to flip by hand.
+input_boolean:
+  dev_toggle:
+    name: Dev toggle
+
+input_number:
+  dev_level:
+    name: Dev level
+    min: 0
+    max: 100
+    step: 1
+    unit_of_measurement: "%"

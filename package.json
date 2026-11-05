@@ -1,16 +1,21 @@
 {
   "name": "clean-cards",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.1.0",
   "license": "MIT",
   "type": "module",
   "packageManager": "bun@1.4.4",
   "scripts": {
-    "dev": "vite build --watch",
+    "dev": "vite",
+    "watch": "vite build --watch",
     "build": "tsc && vite build",
+    "typecheck": "tsc",
+    "test": "vitest run",
+    "test:watch": "vitest",
     "lint": "eslint .",
     "format": "prettier --write .",
-    "format:check": "prettier --check ."
+    "format:check": "prettier --check .",
+    "ha": "bun scripts/ha.ts"
   },
   "dependencies": {
     "lit": "^3.3.3"
@@ -19,10 +24,14 @@
     "@eslint/js": "^10.0.1",
     "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-lit": "^2.3.1",
+    "eslint-plugin-wc": "^3.1.0",
+    "happy-dom": "^21.0.4",
     "home-assistant-js-websocket": "^9.8.1",
     "prettier": "^3.9.10",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.72.1",
-    "vite": "^8.3.6"
+    "vite": "^8.3.6",
+    "vitest": "^5.1.0"
   }
 }
