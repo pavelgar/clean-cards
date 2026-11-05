@@ -32,36 +32,37 @@ name: Kitchen # optional, defaults to the entity's name
 
 ## Development
 
-You need [Bun](https://bun.sh/), Node.js (version in `.nvmrc`), and Podman or Docker.
+You need [Bun](https://bun.sh/), Node.js (version in `.nvmrc`), and Docker or
+Podman (as `docker`). Run these in two terminals:
 
 ```sh
 bun install
-bun run ha     # start a local Home Assistant at http://localhost:8123
-bun run dev    # serve the cards to it
+bun run ha     # local Home Assistant at http://localhost:8123 (Ctrl+C stops it)
+bun run dev    # serves the cards to it
 ```
 
-`bun run ha` runs Home Assistant in a container, with its config in `.ha/`.
-On the first start it completes onboarding, adds the dev server as a dashboard
-resource, and creates a **Clean Cards** dashboard (`/clean-cards`) that shows each card next to the built-in
-tile card. Log in as `dev` / `dev`. The demo integration provides the entities.
+`bun run ha` runs Home Assistant in a container with `dev/ha/` as its config
+folder. The committed `configuration.yaml` loads the demo integration for test
+entities, loads the cards from the dev server, and adds a **Clean Cards**
+dashboard (`dev/ha/dashboards/clean-cards.yaml`) that shows each card next to
+the built-in tile card.
 
-After you change a card, reload the dashboard to see it. Cards can't be
-swapped in place, because a custom element can't be redefined.
+The first time, open http://localhost:8123 and create an account. Home
+Assistant keeps it, and everything else it writes, in `dev/ha/` (gitignored).
+To start from scratch, run `git clean -fdX dev/ha`.
+
+After you change a card or the dashboard file, reload the dashboard to see it.
+Cards can't be swapped in place, because a custom element can't be redefined.
 
 Other commands:
 
-| Command           | What it does                                       |
-| ----------------- | -------------------------------------------------- |
-| `bun run ha stop` | Stop the local Home Assistant                      |
-| `bun run ha logs` | Follow its logs                                    |
-| `bun run test`    | Run the tests (`bun run test:watch` to keep going) |
-| `bun run lint`    | Lint                                               |
-| `bun run format`  | Format with Prettier                               |
-| `bun run build`   | Type-check and build `dist/clean-cards.js`         |
-| `bun run watch`   | Rebuild `dist/` on every change                    |
-
-To start Home Assistant from scratch, stop it, remove the container
-(`podman rm clean-cards-ha`) and delete `.ha/`.
+| Command          | What it does                                       |
+| ---------------- | -------------------------------------------------- |
+| `bun run test`   | Run the tests (`bun run test:watch` to keep going) |
+| `bun run lint`   | Lint                                               |
+| `bun run format` | Format with Prettier                               |
+| `bun run build`  | Type-check and build `dist/clean-cards.js`         |
+| `bun run watch`  | Rebuild `dist/` on every change                    |
 
 ### Releasing
 

@@ -6,7 +6,7 @@ import { configs as wc } from "eslint-plugin-wc";
 import tseslint from "typescript-eslint";
 
 export default defineConfig([
-  globalIgnores(["dist", ".ha"]),
+  globalIgnores(["dist", "dev/ha"]),
   js.configs.recommended,
   tseslint.configs.recommended,
   lit["flat/recommended"],

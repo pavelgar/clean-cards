@@ -23,5 +23,7 @@ dist-ssr
 *.sln
 *.sw?
 
-# Local Home Assistant used for development (bun run ha)
-.ha
+# Everything the local Home Assistant (bun run ha) writes to its config folder
+dev/ha/*
+!dev/ha/configuration.yaml
+!dev/ha/dashboards/

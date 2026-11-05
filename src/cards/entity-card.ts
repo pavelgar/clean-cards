@@ -5,7 +5,7 @@ import type {
   LovelaceCard,
   LovelaceCardConfig,
   LovelaceGridOptions,
-} from "../types/ha";
+} from "home-assistant-frontend-types";
 
 export interface EntityCardConfig extends LovelaceCardConfig {
   entity: string;

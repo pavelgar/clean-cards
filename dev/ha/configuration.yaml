@@ -1,12 +1,12 @@
-# Config for the throwaway Home Assistant started by `bun run ha start`.
-# Copied to .ha/ on first start; edit .ha/configuration.yaml to experiment.
+# Config for the local Home Assistant started by `bun run ha`.
+# This folder is mounted as its /config; everything it writes here is gitignored.
 
 default_config:
 
 # Fake lights, sensors, climate, media players etc. to put on cards.
 demo:
 
-# Entities the cards' state is easy to flip by hand.
+# Entities whose state is easy to flip by hand.
 input_boolean:
   dev_toggle:
     name: Dev toggle
@@ -18,3 +18,16 @@ input_number:
     max: 100
     step: 1
     unit_of_measurement: "%"
+
+lovelace:
+  # Load the cards from the Vite dev server (`bun run dev`).
+  resource_mode: yaml
+  resources:
+    - url: http://localhost:5173/src/clean-cards.ts
+      type: module
+  dashboards:
+    clean-cards:
+      mode: yaml
+      filename: dashboards/clean-cards.yaml
+      title: Clean Cards
+      icon: mdi:card-outline

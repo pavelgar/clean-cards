@@ -1,4 +1,4 @@
-import type { CustomCardEntry } from "./types/ha";
+import type { CustomCardEntry } from "home-assistant-frontend-types";
 
 /**
  * Defines a card element and lists it in the dashboard card picker.
