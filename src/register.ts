@@ -1,7 +1,4 @@
-import type {
-  CustomCardEntry,
-  CustomCardsWindow,
-} from "@/ha/data/lovelace_custom_cards"
+import type { CustomCardEntry, CustomCardsWindow } from "@/ha"
 
 /**
  * Defines a card element and lists it in the dashboard card picker.
