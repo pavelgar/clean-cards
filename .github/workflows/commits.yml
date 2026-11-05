@@ -27,11 +27,11 @@ jobs:
       - run: bun install --frozen-lockfile
       # A squash merge of several commits uses the PR title as the commit message.
       - name: Lint the PR title
-        run: echo "$PR_TITLE" | bunx commitlint --verbose
+        run: echo "$PR_TITLE" | bun run commitlint --verbose
         env:
           PR_TITLE: ${{ github.event.pull_request.title }}
       - name: Lint the PR commits
-        run: bunx commitlint --verbose --from "$BASE" --to "$HEAD"
+        run: bun run commitlint --verbose --from "$BASE" --to "$HEAD"
         env:
           BASE: ${{ github.event.pull_request.base.sha }}
           HEAD: ${{ github.event.pull_request.head.sha }}
