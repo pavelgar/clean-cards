@@ -1,6 +1,6 @@
 import { version } from "../package.json";
-import { CleanEntityCard } from "./cards/entity-card";
-import { registerCard } from "./register";
+import { CleanEntityCard } from "@/cards/entity-card";
+import { registerCard } from "@/register";
 
 registerCard(CleanEntityCard, {
   type: "clean-entity-card",

@@ -12,6 +12,7 @@
         "eslint": "^10.14.0",
         "eslint-config-prettier": "^10.1.8",
         "eslint-plugin-lit": "^2.3.1",
+        "eslint-plugin-no-relative-import-paths": "^1.7.3",
         "eslint-plugin-wc": "^3.1.0",
         "happy-dom": "^21.0.4",
         "home-assistant-frontend-types": "^2026.5.2770",
@@ -186,6 +187,8 @@
     "eslint-config-prettier": ["eslint-config-prettier@10.1.8", "", { "peerDependencies": { "eslint": ">=7.0.0" }, "bin": { "eslint-config-prettier": "bin/cli.js" } }, "sha512-82GZUjRS0p/jganf6q1rEO25VSoHH0hKPCTrgillPjdI/3bgBhAE1QzHrHTizjpRvy6pGAvKjDJtk2pF9NDq8w=="],
 
     "eslint-plugin-lit": ["eslint-plugin-lit@2.3.1", "", { "dependencies": { "parse5": "^8.0.1", "parse5-htmlparser2-tree-adapter": "^8.0.1" }, "peerDependencies": { "eslint": ">= 8" } }, "sha512-wAqDOOWQzUoY5uK124ZR+h7Snx0+KdZd3Knv6133gRHEcu03jbqnouK4GBwVl6PkGOkNy40zSchOp9VbBh4yHg=="],
+
+    "eslint-plugin-no-relative-import-paths": ["eslint-plugin-no-relative-import-paths@1.7.3", "", {}, "sha512-vEpNX0fvhoHdBu8eI05+XXYswnGHW2HJYmnJJeR8zOwgo59GgWv98z22XyZvMEHHcjSX4yGX2Ni/GyxGpBjfgw=="],
 
     "eslint-plugin-wc": ["eslint-plugin-wc@3.1.0", "", { "dependencies": { "is-valid-element-name": "^1.0.0", "js-levenshtein-esm": "^2.0.0" }, "peerDependencies": { "eslint": ">=8.40.0" } }, "sha512-spvXHD2/GTTgYXxFB3xlMThnXGUeNJaiCwWuPGzjDOLXnVGLcQpDt0fyiN6yiLoaLs/yhsj+7G1FpBZKeigCSA=="],
 

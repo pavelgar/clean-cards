@@ -25,6 +25,7 @@
     "eslint": "^10.14.0",
     "eslint-config-prettier": "^10.1.8",
     "eslint-plugin-lit": "^2.3.1",
+    "eslint-plugin-no-relative-import-paths": "^1.7.3",
     "eslint-plugin-wc": "^3.1.0",
     "happy-dom": "^21.0.4",
     "home-assistant-frontend-types": "^2026.5.2770",
