@@ -17,6 +17,9 @@
     "format:check": "prettier --check .",
     "ha": "docker run --rm --name clean-cards-ha -p 8123:8123 -v ./dev/ha:/config:Z ghcr.io/home-assistant/home-assistant:stable"
   },
+  "prettier": {
+    "semi": false
+  },
   "dependencies": {
     "lit": "^3.3.3"
   },

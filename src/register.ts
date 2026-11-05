@@ -1,4 +1,4 @@
-import type { CustomCardEntry } from "home-assistant-frontend-types";
+import type { CustomCardEntry } from "home-assistant-frontend-types"
 
 /**
  * Defines a card element and lists it in the dashboard card picker.
@@ -10,10 +10,10 @@ export function registerCard(
   entry: CustomCardEntry,
 ): void {
   if (!customElements.get(entry.type)) {
-    customElements.define(entry.type, ctor);
+    customElements.define(entry.type, ctor)
   }
-  window.customCards ??= [];
+  window.customCards ??= []
   if (!window.customCards.some((card) => card.type === entry.type)) {
-    window.customCards.push(entry);
+    window.customCards.push(entry)
   }
 }
