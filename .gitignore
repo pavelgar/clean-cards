@@ -27,3 +27,6 @@ dist-ssr
 dev/ha/*
 !dev/ha/configuration.yaml
 !dev/ha/dashboards/
+
+# Claude desktop app preview config (local to whoever uses it)
+.claude/launch.json

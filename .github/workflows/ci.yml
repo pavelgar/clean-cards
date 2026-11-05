@@ -29,10 +29,11 @@ jobs:
       - run: bun run test
       - run: bun run build
 
-  # Fails until the repo has a description, topics and a first release.
   hacs:
     runs-on: ubuntu-latest
     steps:
       - uses: hacs/action@22.5.0
         with:
           category: plugin
+          # README images are only required for HACS's default store; we're a custom repository.
+          ignore: images
