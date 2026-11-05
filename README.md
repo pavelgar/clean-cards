@@ -38,12 +38,13 @@ Podman (as `docker`). Run these in two terminals:
 ```sh
 bun install
 bun run ha     # local Home Assistant at http://localhost:8123 (Ctrl+C stops it)
-bun run dev    # serves the cards to it
+bun run dev    # builds the cards on every change and serves them to it
 ```
 
 `bun run ha` runs Home Assistant in a container with `dev/ha/` as its config
 folder. The committed `configuration.yaml` loads the demo integration for test
-entities, loads the cards from the dev server, and adds a **Clean Cards**
+entities, loads the built cards from `http://localhost:4000/clean-cards.js` on
+every page (`frontend: extra_module_url`), and adds a **Clean Cards**
 dashboard (`dev/ha/dashboards/clean-cards.yaml`) that shows each card next to
 the built-in tile card.
 
@@ -51,7 +52,9 @@ The first time, open http://localhost:8123 and create an account. Home
 Assistant keeps it, and everything else it writes, in `dev/ha/` (gitignored).
 To start from scratch, run `git clean -fdX dev/ha`.
 
-After you change a card or the dashboard file, reload the dashboard to see it.
+`bun run dev` runs `vite build --watch` and `vite preview` together, so Home
+Assistant always loads the same bundle a release would ship. After you change a
+card or the dashboard file, reload the page to see it.
 Cards can't be swapped in place, because a custom element can't be redefined.
 
 Other commands:
@@ -62,7 +65,10 @@ Other commands:
 | `bun run lint`   | Lint                                               |
 | `bun run format` | Format with Prettier                               |
 | `bun run build`  | Type-check and build `dist/clean-cards.js`         |
-| `bun run watch`  | Rebuild `dist/` on every change                    |
+
+Types for Home Assistant's frontend (`hass`, cards, the card picker) are copied
+from its source into `src/ha/`; see `src/ha/README.md` for where from and how to
+add more.
 
 ### Releasing
 

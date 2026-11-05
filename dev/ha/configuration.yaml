@@ -19,12 +19,12 @@ input_number:
     step: 1
     unit_of_measurement: "%"
 
+# Load the built cards from `bun run dev` on every page.
+frontend:
+  extra_module_url:
+    - http://localhost:4000/clean-cards.js
+
 lovelace:
-  # Load the cards from the Vite dev server (`bun run dev`).
-  resource_mode: yaml
-  resources:
-    - url: http://localhost:5173/src/clean-cards.ts
-      type: module
   dashboards:
     clean-cards:
       mode: yaml

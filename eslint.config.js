@@ -26,5 +26,10 @@ export default defineConfig([
       ],
     },
   },
+  {
+    // Copied from the Home Assistant frontend; keep it as close to the source as we can.
+    files: ["src/ha/**/*.ts"],
+    rules: { "@typescript-eslint/no-explicit-any": "off" },
+  },
   prettier,
 ])

@@ -1,4 +1,7 @@
-import type { CustomCardEntry } from "home-assistant-frontend-types"
+import type {
+  CustomCardEntry,
+  CustomCardsWindow,
+} from "@/ha/data/lovelace_custom_cards"
 
 /**
  * Defines a card element and lists it in the dashboard card picker.
@@ -12,8 +15,9 @@ export function registerCard(
   if (!customElements.get(entry.type)) {
     customElements.define(entry.type, ctor)
   }
-  window.customCards ??= []
-  if (!window.customCards.some((card) => card.type === entry.type)) {
-    window.customCards.push(entry)
+  const customCardsWindow = window as CustomCardsWindow
+  customCardsWindow.customCards ??= []
+  if (!customCardsWindow.customCards.some((card) => card.type === entry.type)) {
+    customCardsWindow.customCards.push(entry)
   }
 }

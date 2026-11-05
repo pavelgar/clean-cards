@@ -1,11 +1,11 @@
 import { LitElement, css, html, nothing, type PropertyValues } from "lit"
 import { property, state } from "lit/decorators.js"
+import type { LovelaceCardConfig } from "@/ha/data/lovelace/config/card"
 import type {
-  HomeAssistant,
   LovelaceCard,
-  LovelaceCardConfig,
   LovelaceGridOptions,
-} from "home-assistant-frontend-types"
+} from "@/ha/panels/lovelace/types"
+import type { HomeAssistant } from "@/ha/types"
 
 export interface EntityCardConfig extends LovelaceCardConfig {
   entity: string

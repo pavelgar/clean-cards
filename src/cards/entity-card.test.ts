@@ -1,7 +1,8 @@
 import type { HassEntity } from "home-assistant-js-websocket"
 import { afterEach, describe, expect, it, vi } from "vitest"
 import "@/clean-cards"
-import type { HomeAssistant } from "home-assistant-frontend-types"
+import type { CustomCardsWindow } from "@/ha/data/lovelace_custom_cards"
+import type { HomeAssistant } from "@/ha/types"
 import type { CleanEntityCard } from "@/cards/entity-card"
 
 const TYPE = "custom:clean-entity-card"
@@ -36,7 +37,7 @@ describe("clean-entity-card", () => {
 
   it("is registered and listed in the card picker", () => {
     expect(customElements.get("clean-entity-card")).toBeDefined()
-    expect(window.customCards).toContainEqual(
+    expect((window as CustomCardsWindow).customCards).toContainEqual(
       expect.objectContaining({ type: "clean-entity-card" }),
     )
   })

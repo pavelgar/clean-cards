@@ -5,10 +5,10 @@ export default defineConfig({
   resolve: {
     tsconfigPaths: true,
   },
-  // `bun run dev` serves src/ to the local Home Assistant at localhost:8123.
-  // Vite's default CORS policy already allows localhost origins.
-  server: {
-    port: 5173,
+  // `bun run dev` rebuilds dist/ on every change and serves it here, for the
+  // local Home Assistant at localhost:8123 (Vite allows localhost origins by default).
+  preview: {
+    port: 4000,
     strictPort: true,
   },
   build: {
